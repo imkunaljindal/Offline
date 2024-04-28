@@ -6,8 +6,7 @@ public class FunctionConcept {
         System.out.println("B");
     }
     static int diff(int x, int y){
-        printA();
-        printB();
+        diff(x-1,y);
         return x-y;
     }
 
