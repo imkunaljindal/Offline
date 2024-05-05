@@ -8,6 +8,15 @@ public class Concept {
         return n*smallerAns;
     }
 
+    static void printXY(int x, int y){
+        if(x==y){
+            System.out.println(x + " ");
+            return;
+        }
+        System.out.println(x + " ");
+        printXY(x+1,y);
+    }
+
     public static void main(String[] args) {
         // write a program to find N!
 //        int ans = 1;
@@ -17,6 +26,7 @@ public class Concept {
 //        }
 //        System.out.println(ans);
 
-        System.out.println(factorial(5));
+//        System.out.println(factorial(5));
+        printXY(48,4880);
     }
 }
