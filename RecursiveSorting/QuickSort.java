@@ -9,10 +9,15 @@ public class QuickSort {
     }
 
     static int partition(int arr[], int s, int e) {
+
+        // randomizing the quick sort
+        int n = e-s+1;
+        int randomIdx = (int)Math.random()*(n-2) + s;
+        swap(arr,randomIdx,e);
         int pivot = arr[e];
         int i = s-1;
         for(int j=s;j<=e-1;j++) {
-            if(arr[j] >= pivot) {
+            if(arr[j] <= pivot) {
                 i++;
                 swap(arr,i,j);
             }
