@@ -15,7 +15,14 @@ public class HashSetConcept {
 //        set.remove(20);
 //        System.out.println(set.size());
 
-        // iterate over a hashset
+        if(set.contains(50)) {
+            System.out.println("True");
+        }
+        else {
+            System.out.println("False");
+        }
+
+        // iterate over a hashset - forEach (no concept of indexes)
         for(int ele: set) {
             System.out.print(ele + " ");
         }

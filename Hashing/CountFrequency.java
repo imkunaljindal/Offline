@@ -12,13 +12,15 @@ public class CountFrequency {
         // element,freq
         HashMap<Integer,Integer> freqMap = new HashMap<>();
         for(int i=0;i<10;i++) {
-            if(freqMap.containsKey(arr[i])) {
-                int currFreq = freqMap.get(arr[i]);
-                freqMap.put(arr[i],currFreq+1);
-            }
-            else {
-                freqMap.put(arr[i],1);
-            }
+//            if(freqMap.containsKey(arr[i])) {
+//                int currFreq = freqMap.get(arr[i]);
+//                freqMap.put(arr[i],currFreq+1);
+//            }
+//            else {
+//                freqMap.put(arr[i],1);
+//            }
+            int currFreqOrDef = freqMap.getOrDefault(arr[i],0);
+            freqMap.put(arr[i],currFreqOrDef+1);
         }
     }
 }

@@ -10,10 +10,11 @@ public class HashMapConcept {
         scoreCard.put("Rohit",50);
         scoreCard.put("Kolhi",40);
         scoreCard.put("Sky",65);
+//        scoreCard.put("Bumrah",30);
 
 //        System.out.println(scoreCard.size());
-        scoreCard.put("Rohit",45);
-        //System.out.println(scoreCard.get("Rohit"));
+        scoreCard.put("Rohit",45);  // overwrite
+        System.out.println(scoreCard.get("Rohit"));  // get(key)-> return value
 //        System.out.println(scoreCard.get("Bumrah"));
 //
 //        if(scoreCard.containsKey("Bumrah")) {
@@ -27,5 +28,9 @@ public class HashMapConcept {
         for(String x: scoreCard.keySet()) {  // set of keys
             System.out.println(x + "->" + scoreCard.get(x));
         }
+
+        // will return the value of key if it exists otherwise return default value
+        int score = scoreCard.getOrDefault("Bumrah",0);
+        System.out.println("Bumrah's score = "+score);
     }
 }
