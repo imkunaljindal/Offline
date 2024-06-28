@@ -45,7 +45,7 @@ class LRUCache {
 
     public LRUCache(int capacity) {
         head = new Node(-1,-1);
-        tail = head;
+        tail = new Node(-1,-1);
         head.next = tail;
         tail.prev = head;
         this.maxCapacity = capacity;
