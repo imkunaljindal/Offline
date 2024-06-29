@@ -9,11 +9,11 @@ class Main {
         String inputLine[] = br.readLine().trim().split(" ");
         long[] arr = new long[(int)n];
         for(int i=0; i<n; i++)arr[i]=Long.parseLong(inputLine[i]);
-        System.out.println(new Solution().maximumArea(arr, n));
+        System.out.println(new Solution4().maximumArea(arr, n));
     }
 }
 
-class Solution {
+class Solution4 {
     public static long maximumArea(long hist[], long n) {
 
         long[] nextSmallerLeftIndex = nextSmallerElementOnLeftIndex(hist,(int)n);
