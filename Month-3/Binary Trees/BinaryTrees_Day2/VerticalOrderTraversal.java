@@ -18,8 +18,8 @@ class TreeNode{
 class Solution {
     int minHd;
     int maxHd;
+    Map<Integer,List> distNodesMap;
     public void traverse(TreeNode root,
-                                Map<Integer, ArrayList<Integer>> distNodesMap,
                                 int hd) {
         if(root==null) return;
 
@@ -27,24 +27,27 @@ class Solution {
             ArrayList<Integer> arr = new ArrayList<>();
             arr.add(root.data);
             distNodesMap.put(hd,arr);
+            minHd = Math.min(minHd,hd);
+            maxHd = Math.max(maxHd,hd);
         }
         else {
-            distNodesMap.get(hd).add(root.data);
+            List<Integer> arr = distNodesMap.get(hd);
+            arr.add(root.data);
+            distNodesMap.put(hd,arr);
         }
-        minHd = Math.min(minHd,hd);
-        maxHd = Math.max(maxHd,hd);
-        traverse(root.left,distNodesMap,hd-1);
-        traverse(root.right,distNodesMap,hd+1);
+
+        traverse(root.left,hd-1);
+        traverse(root.right, hd+1);
 
     }
 
     List<List<Integer>> VerticalTraversal(TreeNode root) {
-        Map<Integer,ArrayList<Integer>> distNodesMap = new HashMap<>();
-        traverse(root,distNodesMap,0);  // O(n)
+        distNodesMap = new HashMap<>();
+        traverse(root,0);  // O(n)
 
         List<List<Integer>> ans = new ArrayList<>();
         for(int i=minHd;i<=maxHd;i++) {
-            ArrayList<Integer> nodes = distNodesMap.get(i);
+            List<Integer> nodes = distNodesMap.get(i);
             Collections.sort(nodes);
             ans.add(nodes);
         }
